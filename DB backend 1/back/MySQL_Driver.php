@@ -60,7 +60,9 @@ class MySQL{
         return mysqli_query($this->db, $sql);
 
     }
-
+    
+    // generate a table
+    
     function table(string $query){
 
         $result = mysqli_query($this->db, $query);
