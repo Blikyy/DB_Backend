@@ -118,19 +118,22 @@ class MySQL implements IDB{
         return mysqli_query($this->db, $sql);
 
     }
-
-    function table(string $query){
+    /**
+     * @param string $query
+     * @param array $colums
+     * @return string
+     */
+    
+    function table(string $query, array $colums):string{
 
         $result = mysqli_query($this->db, $query);
         $html = "";
         $html .= "<table class='customTable'>\n";
         $html .= "<thead>\n";
         $html .= "<tr>\n";
-        $html .= "<th>ID</th>\n";
-        $html .= "<th>Name</th>\n";
-        $html .= "<th>Surname</th>\n";
-        $html .= "<th>From</th>\n";
-        $html .= "<th>To</th>\n";
+        foreach($colums as $colum){
+            $html .= "<th>" . $colum . "</th>\n";
+        }
         $html .= "</tr>\n";
         $html .= "<thead>\n";
         $html .= "<tbody>\n";
