@@ -23,8 +23,8 @@
 
     $con = new MySQL();
     $con->connect("localhost","root","","letadlo");
-    $con->table("SELECT `user`.`id`, `user`.`name`, `user`.`surname`, `flight`.`where`, `flight`.`to` FROM `flight` JOIN `user` ON `flight`.`id` = `user`.`fly_id`;");
-
+    $table = $con->table("SELECT `user`.`id`, `user`.`name`, `user`.`surname`, `flight`.`where`, `flight`.`to` FROM `flight` JOIN `user` ON `flight`.`id` = `user`.`fly_id`;");
+    echo $table;
     ?>
 
     </div>
